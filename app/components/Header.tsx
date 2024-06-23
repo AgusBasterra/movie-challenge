@@ -3,7 +3,6 @@
 import { Box, Typography, Toolbar, AppBar, useTheme, useMediaQuery } from '@mui/material';
 import SearchInput from './SearchBar';
 import Link from 'next/link';
-import MenuItem from './MenuItem';
 import { WbSunny, Brightness4 } from '@mui/icons-material';
 import { useThemeToggle } from '../StyledRoot';
 
@@ -35,7 +34,6 @@ const Header = () => {
                 <Brightness4 onClick={toggleTheme} />
             )}
           <SearchInput />
-          <MenuItem />
         </Box>
       </Toolbar>
     </AppBar>
