@@ -73,7 +73,7 @@ const SearchInput = () => {
                   <SearchIcon />
               </SearchIconWrapper>
               <StyledInputBase
-                  placeholder="Buscar..."
+                  placeholder="Search..."
                   onChange={e => handleOnChange(e.target.value)}
                   fullWidth
               />

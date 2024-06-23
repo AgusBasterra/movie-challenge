@@ -36,10 +36,10 @@ const apiGet: APIGet = {
         if (response.status === 200) {
           return response.data;
         } else {
-          throw new Error('Error al obtener las películas');
+          throw new Error('Error while fetching movies');
         }
       } catch (error) {
-        console.log('Error al obtener las películas:', error);
+        console.log('Error while fetching movies:', error);
         return {} as Movies;
       }
 
@@ -58,10 +58,10 @@ const apiGet: APIGet = {
         return result;
 
       } else {
-        throw new Error('Error al obtener las películas');
+        throw new Error('Error while fetching movies');
       }
     } catch (error) {
-      console.log('Error al obtener las películas:', error);
+      console.log('Error while fetching movies:', error);
       return {} as SingleMovie
     }
   },
@@ -79,10 +79,10 @@ const apiGet: APIGet = {
         return result.results.slice(0, MAX_RECOMMENDATIONS_LENGTH);
 
       } else {
-        throw new Error('Error al obtener las recomendaciones');
+        throw new Error('Error while fetching recommendations');
       }
     } catch (error) {
-      console.log('Error al obtener las películas:', error);
+      console.log('Error while fetching recommendations:', error);
       return {} as SimilarToMovies
     }
   }

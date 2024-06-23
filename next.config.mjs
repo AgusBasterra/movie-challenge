@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
-// Here we need reactStrictMode so the mount of components doesnt ocurre twice
+// Tuve que agregar el reactStrictMode para que no se ejecute 2 veces el componente
+
 const nextConfig = {
     images: {
         remotePatterns: [
@@ -11,9 +12,6 @@ const nextConfig = {
         ],
     },
     reactStrictMode: false,
-    env: {
-        BASE_URLS: process.env.BASE_URL, // pulls from .env file
-    },
 };
 
 export default nextConfig;
