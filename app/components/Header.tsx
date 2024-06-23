@@ -5,6 +5,7 @@ import SearchInput from './SearchBar';
 import Link from 'next/link';
 import { WbSunny, Brightness4 } from '@mui/icons-material';
 import { useThemeToggle } from '../StyledRoot';
+import { Suspense } from 'react';
 
 
 const Header = () => {
@@ -33,7 +34,9 @@ const Header = () => {
             ) : (
                 <Brightness4 onClick={toggleTheme} />
             )}
-          <SearchInput />
+          <Suspense>
+            <SearchInput />
+          </Suspense>
         </Box>
       </Toolbar>
     </AppBar>

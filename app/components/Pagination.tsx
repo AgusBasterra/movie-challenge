@@ -20,9 +20,9 @@ const Paginations: FC<PaginationI> = ({ page, pages }) => {
     }
 
   return (
-    <Stack>
-      <Pagination count={pages} page={page} shape="rounded" onChange={handleOnChange} />
-    </Stack>
+      <Stack>
+        <Pagination count={pages} page={page} shape="rounded" onChange={handleOnChange} />
+      </Stack>
   );
 }
 

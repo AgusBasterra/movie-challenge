@@ -1,7 +1,7 @@
 import { Box, Container, Typography } from "@mui/material";
 import apiGet from "./lib/apiGet";
 import MovieList from "./components/MovieList";
-import { FC } from "react";
+import { FC, Suspense } from "react";
 import { ServerParams } from "./lib/interfaces/moviesTypes";
 import Paginations from "./components/Pagination";
 
@@ -16,7 +16,9 @@ const Home: FC<ServerParams> = async ({searchParams}) => {
       <Typography variant="h4" fontWeight="bold" marginY={5}> Recommended Movies </Typography>
       <MovieList movies={getMovies} />
       <Box sx={{ marginTop: 5, justifyContent: 'center', display: 'flex' }}>
-        <Paginations pages={getMovies.total_pages > 500 ? 500 : getMovies.total_pages} page={Number(page)}/>
+        <Suspense>
+          <Paginations pages={getMovies.total_pages > 500 ? 500 : getMovies.total_pages} page={Number(page)}/>
+        </Suspense>
       </Box>
     </Container>
   );

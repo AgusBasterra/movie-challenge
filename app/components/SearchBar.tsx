@@ -66,20 +66,20 @@ const SearchInput = () => {
   }, 600)
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
-        <Toolbar>
-            <Search>
-            <SearchIconWrapper>
-                <SearchIcon />
-            </SearchIconWrapper>
-            <StyledInputBase
-                placeholder="Buscar..."
-                onChange={e => handleOnChange(e.target.value)}
-                fullWidth
-            />
-            </Search>
-        </Toolbar>
-    </Box>
+      <Box sx={{ flexGrow: 1 }}>
+          <Toolbar>
+              <Search>
+              <SearchIconWrapper>
+                  <SearchIcon />
+              </SearchIconWrapper>
+              <StyledInputBase
+                  placeholder="Buscar..."
+                  onChange={e => handleOnChange(e.target.value)}
+                  fullWidth
+              />
+              </Search>
+          </Toolbar>
+      </Box>
   );
 
 };
