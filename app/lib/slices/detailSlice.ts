@@ -1,11 +1,11 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
-import { SimilarToMovies, SingleMovie } from '../interfaces/moviesTypes';
+import { Movie, SingleMovie } from '../interfaces/moviesTypes';
 import apiGet from '../apiGet';
 
 interface MoviesState {
   movie?: SingleMovie;
-  recommendations?: SimilarToMovies[];
+  recommendations?: Movie[];
   status: 'idle' | 'loading' | 'succeeded' | 'failed';
   error: string | null;
 }

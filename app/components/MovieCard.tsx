@@ -1,9 +1,14 @@
-import React from 'react'
+import React, { FC } from 'react'
 import { Box, Card, CardActionArea, CardContent, CardMedia, Chip, Typography } from '@mui/material'
 
 import { Movie } from '../lib/interfaces/moviesTypes'
 
-const MovieCard = ({title, backdrop_path, overview, release_date, vote_average}: Movie) => {
+interface MovieCardI {
+  movie: Movie,
+  slim?: boolean
+}
+
+const MovieCard: FC<MovieCardI> = ({movie, slim}) => {
 
     const baseURL = "https://image.tmdb.org/t/p/original"
 
@@ -13,21 +18,23 @@ const MovieCard = ({title, backdrop_path, overview, release_date, vote_average}:
         <CardMedia
           component="img"
           height="320"
-          image={`${baseURL}${backdrop_path}`}
-          alt={title}
+          image={`${baseURL}${movie.backdrop_path}`}
+          alt={movie.title}
         />
         <CardContent sx={{ textAlign: 'left' }}>
           <Typography gutterBottom variant="h5" component="div">
-            {title}
+            {movie.title}
           </Typography>
-          <Box sx={{ display: 'flex', justifyContent:'space-between', marginBottom: 2, alignItems: 'center' }}>
-            <Typography variant="body2" color="text.secondary">
-              RATING: {vote_average}
-            </Typography>
-            <Typography variant="body1" color="text.primary">
-              DATE: {release_date}
-            </Typography>
-          </Box>
+          { !slim && 
+            <Box sx={{ display: 'flex', justifyContent:'space-between', marginBottom: 2, alignItems: 'center' }}>
+              <Typography variant="body2" color="text.secondary">
+                RATING: {movie.vote_average}
+              </Typography>
+              <Typography variant="body1" color="text.primary">
+                DATE: {movie.release_date}
+              </Typography>
+            </Box>
+          }
           <Typography variant="body2" color="text.secondary" 
             sx={{ overflow: 'hidden', 
               textOverflow: 'ellipsis', 
@@ -36,7 +43,7 @@ const MovieCard = ({title, backdrop_path, overview, release_date, vote_average}:
               WebkitBoxOrient: 'vertical' 
             }}
           >
-            {overview}
+            {movie.overview}
           </Typography>
         </CardContent>
       </CardActionArea>

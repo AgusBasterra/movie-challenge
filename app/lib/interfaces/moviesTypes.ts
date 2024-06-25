@@ -6,20 +6,20 @@ export interface Movies {
 }
 
 export interface Movie {
-    /* adult: boolean; */
+    adult?: boolean;
     backdrop_path: string;
-    /* genre_ids: number[]; */
+    genre_ids?: number[];
     id: number;
-    /* original_language: string;
-    original_title: string; */
+    original_language?: string;
+    original_title?: string;
     overview: string;
-    /* popularity: number; */
-    /* poster_path: string; */
+    popularity?: number;
+    poster_path?: string;
     release_date: string;
     title: string;
-    /* video: boolean; */
+    video?: boolean;
     vote_average: number;
-    /* vote_count: number; */
+    vote_count?: number;
 }
 
 export interface MovieParams {
@@ -31,7 +31,7 @@ export interface ServerParams {
     searchParams: MovieParams
 }
 
-export interface SingleMovie extends SimilarToMovies {
+export interface SingleMovie extends Movie {
     belongs_to_collection: BelongsToCollection;
     budget: number;
     genres: Genre[];
@@ -46,23 +46,6 @@ export interface SingleMovie extends SimilarToMovies {
     status: string;
     tagline: string;
   }
-
-export interface SimilarToMovies {
-  backdrop_path: string;
-  id: number;
-  original_title: string;
-  overview: string;
-  poster_path: string;
-  adult: boolean;
-  title: string;
-  original_language: string;
-  genre_ids: number[];
-  popularity: number;
-  release_date: string;
-  video: boolean;
-  vote_average: number;
-  vote_count: number;
-}
 
   interface SpokenLanguage {
     english_name: string;

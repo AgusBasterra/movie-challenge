@@ -1,10 +1,10 @@
-import { Movies, ServerParams, SimilarToMovies, SingleMovie } from "./interfaces/moviesTypes";
+import { Movie, Movies, ServerParams, SingleMovie } from "./interfaces/moviesTypes";
 import axios from 'axios';
 
 interface APIGet {
     getMovies: ({searchParams}: ServerParams) => Promise<Movies>;
     getMovie: (id: string) => Promise<SingleMovie>;
-    getRecommendations: (id: string) => Promise<SimilarToMovies[]>;
+    getRecommendations: (id: string) => Promise<Movie[]>;
 }
 
 const MAX_RECOMMENDATIONS_LENGTH = 4
@@ -83,7 +83,7 @@ const apiGet: APIGet = {
       }
     } catch (error) {
       console.log('Error while fetching recommendations:', error);
-      return {} as SimilarToMovies
+      return {} as Movie
     }
   }
 };
